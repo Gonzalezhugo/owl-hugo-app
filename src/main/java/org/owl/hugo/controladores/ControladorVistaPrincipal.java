@@ -4,6 +4,7 @@ import org.owl.hugo.vistas.VistaAdministrarArticulos;
 import org.owl.hugo.vistas.VistaAdministrarClientes;
 import org.owl.hugo.vistas.VistaAdministrarProveedores;
 import org.owl.hugo.vistas.VistaPrincipal;
+import org.owl.hugo.vistas.VistaRegistrarCompras;
 import org.owl.hugo.vistas.Visualizable;
 
 /**
@@ -51,7 +52,14 @@ public class ControladorVistaPrincipal implements Controlador{
             case ADMINISTRAR_PROVEEDORES:
                  controlador = new ControladorVistaAdministrarProveedores();
                  vista = new VistaAdministrarProveedores((ControladorVistaAdministrarProveedores)controlador);
-                
+                 break;
+            case REGISTRAR_COMPRAS:
+                controlador = new ControladorVistaRegistrarCompras();
+                vista = new VistaRegistrarCompras((ControladorVistaRegistrarCompras)controlador);
+                break;
+            default:
+                System.out.println("Hasta Luego!!!!");
+                break;
         }
         vista.visualizar();
     }
