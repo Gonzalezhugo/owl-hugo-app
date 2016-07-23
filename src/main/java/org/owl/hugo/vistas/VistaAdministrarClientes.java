@@ -20,7 +20,7 @@ public class VistaAdministrarClientes implements Visualizable{
     }
     @Override
     public void visualizar() {
-        MenuDeConsola menu = new MenuDeConsola(controlador.obtenerAcciones());
+        MenuDeConsola menu = new MenuDeConsola(controlador.obtenerNombresAcciones());
         menu.MostrarMenu();
         int accion = menu.SolicitarOpcion();
         controlador.procesarAccion(accion);

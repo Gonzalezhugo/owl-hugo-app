@@ -1,6 +1,8 @@
 package org.owl.hugo.controladores;
 
 import org.owl.hugo.vistas.VistaAdministrarArticulos;
+import org.owl.hugo.vistas.VistaAdministrarClientes;
+import org.owl.hugo.vistas.VistaAdministrarProveedores;
 import org.owl.hugo.vistas.VistaPrincipal;
 import org.owl.hugo.vistas.Visualizable;
 
@@ -12,7 +14,7 @@ public class ControladorVistaPrincipal implements Controlador{
 
     public static enum Accion {
         ADMINISTRAR_ARTICULOS("Administrar Articulos"),
-        ADMINISTRAR_CIENTES("Administrar Clientes"),
+        ADMINISTRAR_CLIENTES("Administrar Clientes"),
         ADMINISTRAR_PROVEEDORES("Administrar Proveedores"),
         REGISTRAR_COMPRAS("Registar Compras"),
         REGISTAR_VENTAS("Registrar Ventas"),
@@ -42,6 +44,14 @@ public class ControladorVistaPrincipal implements Controlador{
                 controlador = new ControladorVistaAdministrarArticulos();
                 vista = new VistaAdministrarArticulos((ControladorVistaAdministrarArticulos)controlador);
                 break;
+            case ADMINISTRAR_CLIENTES:
+                controlador = new ControladorVistaAdministrarClientes();
+                vista = new VistaAdministrarClientes((ControladorVistaAdministrarClientes)controlador);
+                break;
+            case ADMINISTRAR_PROVEEDORES:
+                 controlador = new ControladorVistaAdministrarProveedores();
+                 vista = new VistaAdministrarProveedores((ControladorVistaAdministrarProveedores)controlador);
+                
         }
         vista.visualizar();
     }

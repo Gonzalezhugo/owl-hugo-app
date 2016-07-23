@@ -5,27 +5,29 @@
  */
 package org.owl.hugo.vistas;
 
-import org.owl.hugo.controladores.ControladorVistaAdministrarArticulos;
+import org.owl.hugo.controladores.ControladorVistaAdministrarProveedores;
 import org.owl.hugo.vistas.componentes.MenuDeConsola;
 
 /**
  *
- * @author hugo
+ * @author huguito
  */
-public class VistaAdministrarArticulos implements Visualizable{
-    private ControladorVistaAdministrarArticulos controlador;
-    
-    public VistaAdministrarArticulos(ControladorVistaAdministrarArticulos controlador){
+public class VistaAdministrarProveedores implements Visualizable{
+    ControladorVistaAdministrarProveedores controlador;
+
+    public VistaAdministrarProveedores(ControladorVistaAdministrarProveedores controlador) {
         this.controlador = controlador;
     }
-
-   @Override
+    
+    @Override
     public void visualizar() {
+        
         MenuDeConsola menu = new MenuDeConsola(controlador.obtenerNombresAcciones());
         menu.MostrarMenu();
         int accion = menu.SolicitarOpcion();
         controlador.procesarAccion(accion);
     }
+    
     
     
 }

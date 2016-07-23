@@ -46,7 +46,7 @@ public class ControladorVistaAdministrarClientes implements Controlador{
         vista.visualizar();
     }
     
-    public String[] obtenerAcciones(){
+    public String[] obtenerNombresAcciones(){
         String[] nombres = new String [Accion.values().length];
         for(int i=0; i < nombres.length; i++){
            nombres[i] = Accion.values()[i].getNombre();
