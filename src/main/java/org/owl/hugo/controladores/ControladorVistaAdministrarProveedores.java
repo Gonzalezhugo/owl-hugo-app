@@ -6,6 +6,7 @@
 package org.owl.hugo.controladores;
 
 import org.owl.hugo.vistas.VistaPrincipal;
+import org.owl.hugo.vistas.Visualizable;
 
 /**
  *
@@ -33,13 +34,13 @@ public class ControladorVistaAdministrarProveedores implements Controlador{
     @Override
     public void procesarAccion(int indiceAccion) {
         Accion accion = Accion.values()[indiceAccion];
-        ControladorVistaPrincipal controlador = null;
-        VistaPrincipal vista = null;
+        Controlador controlador = null;
+        Visualizable vista = null;
         
         switch(accion){
             case VOLVER: 
                 controlador = new ControladorVistaPrincipal();
-                vista = new VistaPrincipal(controlador);
+                vista = new VistaPrincipal((ControladorVistaPrincipal)controlador);
                 break;
         }
         vista.visualizar();

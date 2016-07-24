@@ -5,6 +5,7 @@ import org.owl.hugo.vistas.VistaAdministrarClientes;
 import org.owl.hugo.vistas.VistaAdministrarProveedores;
 import org.owl.hugo.vistas.VistaPrincipal;
 import org.owl.hugo.vistas.VistaRegistrarCompras;
+import org.owl.hugo.vistas.VistaRegistrarVentas;
 import org.owl.hugo.vistas.Visualizable;
 
 /**
@@ -38,7 +39,7 @@ public class ControladorVistaPrincipal implements Controlador{
     @Override
     public void procesarAccion(int indiceAccion) {
         Accion accion = Accion.values()[indiceAccion];
-        Controlador controlador = null;
+        Controlador controlador;
         Visualizable vista = null;
         switch (accion) {
             case ADMINISTRAR_ARTICULOS:
@@ -57,13 +58,14 @@ public class ControladorVistaPrincipal implements Controlador{
                 controlador = new ControladorVistaRegistrarCompras();
                 vista = new VistaRegistrarCompras((ControladorVistaRegistrarCompras)controlador);
                 break;
-            default:
-                System.out.println("Hasta Luego!!!!");
+            case REGISTAR_VENTAS:
+                controlador = new ControladorVistaRegistrarVentas();
+                vista = new VistaRegistrarVentas((ControladorVistaRegistrarVentas)controlador);
                 break;
+            
         }
         vista.visualizar();
     }
-    
     
     public String [] obtenerNombresAcciones(){
         String [] nombres = new String[Accion.values().length];

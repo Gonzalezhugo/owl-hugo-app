@@ -12,15 +12,14 @@ import org.owl.hugo.vistas.Visualizable;
  *
  * @author huguito
  */
-public class ControladorVistaRegistrarCompras implements Controlador{
+public class ControladorVistaRegistrarVentas implements Controlador{
     
-    public static enum Accion{
-        REGISTRAR_COMPRA("Registrar Compra"),
+    public static enum Accion {
+        REGISTAR_VENTAS("Registar Ventas"),
         LISTAR_FACTURAS("Listar Facturas"),
         VOLVER("Volver a la pantalla anterior");
         
-        private String nombre;
-        
+        public final String nombre;
         Accion(String nombre){
             this.nombre = nombre;
         }
@@ -28,7 +27,9 @@ public class ControladorVistaRegistrarCompras implements Controlador{
         public String getNombre(){
             return nombre;
         }
+        
     }
+    
     
     @Override
     public void procesarAccion(int indiceAccion) {
@@ -42,11 +43,11 @@ public class ControladorVistaRegistrarCompras implements Controlador{
                 break;
         }
         vista.visualizar();
-    }   
+    }
     
-    public String[] obtenerNombresAcciones(){
+    public String[] obtenerNombresAccion(){
         String[] nombres = new String[Accion.values().length];
-        for(int i=0; i< nombres.length; i++){
+        for(int i=0; i < nombres.length; i++){
             nombres[i] = Accion.values()[i].getNombre();
         }
         return nombres;
