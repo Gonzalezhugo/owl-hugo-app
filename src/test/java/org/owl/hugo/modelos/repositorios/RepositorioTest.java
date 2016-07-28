@@ -14,7 +14,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.owl.hugo.modelos.Identificable;
 import org.owl.hugo.modelos.Persona;
-import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.not;
 

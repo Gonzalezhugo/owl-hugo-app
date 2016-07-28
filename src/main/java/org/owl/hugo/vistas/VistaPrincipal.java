@@ -7,6 +7,9 @@ package org.owl.hugo.vistas;
 
 import org.owl.hugo.controladores.ControladorVistaPrincipal;
 import org.owl.hugo.vistas.componentes.MenuDeConsola;
+import org.owl.hugo.vistas.componentes.utilitarios.UtilitarioConsola;
+import static org.owl.hugo.vistas.componentes.utilitarios.UtilitarioConsola.imprimirTituloPantalla;
+import static org.owl.hugo.vistas.componentes.utilitarios.UtilitarioConsola.limpiarPantalla;
 
 /**
  *
@@ -22,6 +25,8 @@ public class VistaPrincipal implements Visualizable {
     
     @Override
     public void visualizar() {
+        limpiarPantalla();
+        imprimirTituloPantalla("Applicacion de Prueba");
         MenuDeConsola menu = new MenuDeConsola(controlador.obtenerNombresAcciones());
         menu.MostrarMenu();
         int accion = menu.SolicitarOpcion();

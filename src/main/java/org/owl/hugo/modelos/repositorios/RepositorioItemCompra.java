@@ -14,7 +14,11 @@ import org.owl.hugo.modelos.Identificable;
 public class RepositorioItemCompra extends Repositorio{
     
     private RepositorioItemCompra INSTANCE;
-    private Long secuencia;
+    private long secuencia;
+    
+    private RepositorioItemCompra(){
+        
+    }
     
     public RepositorioItemCompra getInstance(){
         if (INSTANCE == null){

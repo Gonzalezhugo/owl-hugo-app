@@ -90,7 +90,41 @@ public abstract class Repositorio {
         
         return repositorio.get(id);
     }
-            
+    
+    /**
+     * Realiza una busqueda paginada basada en un patrón que coincida con
+     * el resultado de la ejecución del método toString del Identificable y 
+     * delimitada por la cantidad de elementos solicitados, empezando por el 
+     * índice inicial especificado.
+     * 
+     * @param filtros {@code String} patrón de búsqueda.
+     * @param indiceInicial {@code int} que indica el índice del primer 
+     * elemento a retornar.
+     * @param cantidadElementos {@code int} que indica la cantidad de elementos 
+     * a retornar a partir del primer elemento solicitado por el parámetro 
+     * {@code indiceInicial}, incluído el mismo.
+     * @return 
+     */
+    
+    public ListaPaginada buscar(String filtros, int indiceInicial, int cantidadElementos){
+        List<Identificable> listaTotal = this.buscar(filtros);
+        int indiceFinalPaginacion = indiceInicial + cantidadElementos;
+        int indiceMaximo = listaTotal.size()-1;
+        
+        if(indiceInicial < 0 || indiceInicial > indiceMaximo){
+            throw new IllegalArgumentException("Indice inicial esta fuera del limite de la lista de resultados.");
+                    
+        }
+        
+        // si se desborda el tamaño se retorna todos los elementos restantes
+        if (indiceFinalPaginacion > listaTotal.size()){
+            indiceFinalPaginacion = listaTotal.size();
+        }
+        
+        return new ListaPaginada(listaTotal.subList(indiceInicial, indiceFinalPaginacion), listaTotal.size());
+    }
+    
+    
     /**
      * Debe generar una identificación única
      * @param entidad 
