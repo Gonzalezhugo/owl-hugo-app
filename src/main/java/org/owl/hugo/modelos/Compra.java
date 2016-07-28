@@ -88,7 +88,7 @@ public class Compra implements Identificable{
     public double calcularSubTotalCompra(){
         double subtotal = 0.0;
         for(ItemCompra i:items){
-            subtotal = subtotal + i.getCostoItem() - (i.getCostoItem() * i.getArticulo().getProcentajeImpuesto() /100);
+            subtotal = subtotal + i.getCostoItem() - (i.getCostoItem() * i.getArticulo().getPorcentajeImpuesto() /100);
         }
         return subtotal;
     }
@@ -96,7 +96,7 @@ public class Compra implements Identificable{
     public double CalcularMontoImpuesto(){
         double montoImpuesto = 0.0;
         for(ItemCompra i: items){
-            montoImpuesto = montoImpuesto + (i.getCostoItem() * i.getArticulo().getProcentajeImpuesto() / 100);
+            montoImpuesto = montoImpuesto + (i.getCostoItem() * i.getArticulo().getPorcentajeImpuesto() / 100);
         }
         return montoImpuesto;
     }

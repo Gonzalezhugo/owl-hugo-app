@@ -87,7 +87,7 @@ public class Venta implements Identificable{
     public double calcularSubTotalVenta(){
         double subtotal = 0.0;
         for(ItemVenta i:items){
-            subtotal = subtotal + i.getCostoItem() - (i.getCostoItem() * i.getArticulo().getProcentajeImpuesto()/100);
+            subtotal = subtotal + i.getCostoItem() - (i.getCostoItem() * i.getArticulo().getPorcentajeImpuesto()/100);
         }
         return subtotal;
     }
@@ -95,7 +95,7 @@ public class Venta implements Identificable{
     public double MontoTotalImpuesto(){
         double totalImpuesto = 0.0;
         for (ItemVenta i:items){
-            totalImpuesto = totalImpuesto + (i.getCostoItem() * i.getArticulo().getProcentajeImpuesto()/100);
+            totalImpuesto = totalImpuesto + (i.getCostoItem() * i.getArticulo().getPorcentajeImpuesto()/100);
         }
         return totalImpuesto;
     }
