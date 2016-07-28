@@ -5,6 +5,8 @@
  */
 package org.owl.hugo.modelos;
 
+import java.util.Objects;
+
 /**
  *
  * @author huguito
@@ -14,7 +16,7 @@ public class Articulo implements Identificable{
     private String codigo;
     private String descripcion;
     private double precio;
-    private double procentajeImpuesto;
+    private double porcentajeImpuesto;
     private Long id;
     private int existencia;
 
@@ -42,12 +44,12 @@ public class Articulo implements Identificable{
         this.precio = precio;
     }
 
-    public double getProcentajeImpuesto() {
-        return procentajeImpuesto;
+    public double getPorcentajeImpuesto() {
+        return porcentajeImpuesto;
     }
 
-    public void setProcentajeImpuesto(double procentajeImpuesto) {
-        this.procentajeImpuesto = procentajeImpuesto;
+    public void setPorcentajeImpuesto(double porcentajeImpuesto) {
+        this.porcentajeImpuesto = porcentajeImpuesto;
     }
     
     @Override
@@ -79,4 +81,38 @@ public class Articulo implements Identificable{
     public void restarExistencia(int n){
         this.existencia = this.existencia - n;
     }
+    
+    @Override
+    public int hashCode(){
+        int hash = 7;
+        hash = 29 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+    
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj){
+            return true;
+        }
+        
+        if(obj == null){
+            return false;
+        }
+        
+        if(getClass() != obj.getClass()){
+            return false;
+        }
+        
+        final Articulo other = (Articulo)obj;
+        if(!Objects.equals(this.id, other.id)){
+            return false;
+        }
+        return true;
+    }
+    
+    @Override
+    public String toString(){
+        return id + "\t" + codigo + "\t" +  descripcion + "\t" + precio + "\t" + porcentajeImpuesto; 
+    }
+    
 }

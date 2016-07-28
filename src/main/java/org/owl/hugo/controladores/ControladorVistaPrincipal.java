@@ -1,11 +1,11 @@
 package org.owl.hugo.controladores;
 
-import org.owl.hugo.vistas.VistaAdministrarArticulos;
-import org.owl.hugo.vistas.VistaAdministrarClientes;
-import org.owl.hugo.vistas.VistaAdministrarProveedores;
+import org.owl.hugo.vistas.articulos.VistaAdministrarArticulos;
+import org.owl.hugo.vistas.clientes.VistaAdministrarClientes;
+import org.owl.hugo.vistas.proveedores.VistaAdministrarProveedores;
 import org.owl.hugo.vistas.VistaPrincipal;
-import org.owl.hugo.vistas.VistaRegistrarCompras;
-import org.owl.hugo.vistas.VistaRegistrarVentas;
+import org.owl.hugo.vistas.compras.VistaRegistrarCompras;
+import org.owl.hugo.vistas.ventas.VistaRegistrarVentas;
 import org.owl.hugo.vistas.Visualizable;
 
 /**
@@ -62,9 +62,20 @@ public class ControladorVistaPrincipal implements Controlador{
                 controlador = new ControladorVistaRegistrarVentas();
                 vista = new VistaRegistrarVentas((ControladorVistaRegistrarVentas)controlador);
                 break;
+            case SALIR:
+                vista = new Visualizable() {
+                            @Override
+                            public void visualizar() {
+                                throw new UnsupportedOperationException("Vista no implementada");
+                            }
+                        };
+                break; 
             
         }
-        vista.visualizar();
+        if (vista != null) {
+            vista.visualizar();
+        }
+        
     }
     
     public String [] obtenerNombresAcciones(){

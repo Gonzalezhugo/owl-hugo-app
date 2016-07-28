@@ -16,6 +16,10 @@ public class RepositorioProveedor extends Repositorio{
     private static RepositorioProveedor INSTANCE;
     private Long secuencia;
     
+    private RepositorioProveedor(){
+     
+    }
+    
     public RepositorioProveedor getInstance(){
         if(INSTANCE == null){
             INSTANCE = new RepositorioProveedor();

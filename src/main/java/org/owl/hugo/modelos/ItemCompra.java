@@ -52,7 +52,7 @@ public class ItemCompra implements Identificable{
     
     public double calcularSubTotalItem(){
         double subtotal = 0;
-        subtotal = costoItem - (costoItem * articulo.getProcentajeImpuesto() / 100);
+        subtotal = costoItem - (costoItem * articulo.getPorcentajeImpuesto() / 100);
         return subtotal;
     }
     
