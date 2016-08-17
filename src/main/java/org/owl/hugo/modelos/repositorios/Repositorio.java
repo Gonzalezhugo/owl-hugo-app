@@ -49,7 +49,7 @@ public abstract class Repositorio {
         }
     }
     
-    public void remove(Identificable entidad){
+    public void eliminar(Identificable entidad){
         if (entidad == null){
             throw new NullPointerException();
         }

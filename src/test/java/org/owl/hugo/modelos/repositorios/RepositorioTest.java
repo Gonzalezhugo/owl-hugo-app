@@ -83,7 +83,7 @@ public class RepositorioTest {
         assertNotNull(personaAEliminar);
         
         //eliminacion
-        repo.remove(personaAEliminar);
+        repo.eliminar(personaAEliminar);
         Persona personaEliminada = (Persona) repo.buscar(persona.getId());
         assertNull(personaEliminada);
     }
