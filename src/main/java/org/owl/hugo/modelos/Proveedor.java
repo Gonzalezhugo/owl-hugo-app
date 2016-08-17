@@ -5,6 +5,7 @@
  */
 package org.owl.hugo.modelos;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -15,6 +16,11 @@ public class Proveedor extends Persona{
     private Date fechaAlta;
     private Date fechaBaja;
     private char estado;
+    
+    
+    public Proveedor(){
+        
+    }
 
     public Date getFechaAlta() {
         return fechaAlta;
@@ -38,5 +44,14 @@ public class Proveedor extends Persona{
 
     public void setEstado(char estado) {
         this.estado = estado;
+    }
+    
+    @Override
+    public String toString(){
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaFmtAlta = fmt.format(fechaAlta);
+        String fechaFmtBaja = fmt.format(fechaBaja);
+        return super.getId() + "\t" + fechaFmtAlta + "\t" + fechaFmtBaja;
+        
     }
 }

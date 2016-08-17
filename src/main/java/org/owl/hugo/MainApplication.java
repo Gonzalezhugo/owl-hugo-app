@@ -17,7 +17,6 @@ public class MainApplication {
     public static void main (String[] args){
         ControladorVistaPrincipal controladorPrincipal = new ControladorVistaPrincipal();
         VistaPrincipal vistaPrincipal = new VistaPrincipal(controladorPrincipal);
-        vistaPrincipal.visualizar();
-        
+        vistaPrincipal.visualizar();   
     }
 }

@@ -16,7 +16,7 @@ public class ControladorVistaAdministrarArticulos implements Controlador{
 
     public static enum Accion{
         CREAR_ARTICULO("Crear Articulo"),
-        MODIFICAR_ARTICULO("Modificar ARticulo"),
+        EDITAT_ARTICULO("Editar Articulo"),
         ELIMINAR_ARTICULO("Eliminar Articulo"),
         VOLVER("Volver a la Pantalla Principal");
         

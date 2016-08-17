@@ -50,14 +50,19 @@ public class ItemCompra implements Identificable{
         this.id = id;
     }
     
+    /*
     public double calcularSubTotalItem(){
         double subtotal = 0;
         subtotal = costoItem - (costoItem * articulo.getPorcentajeImpuesto() / 100);
         return subtotal;
     }
-    
+    */
     public double calcularCostoUnitario(){
         return (costoItem/cantidad);
     }
     
+    @Override
+    public String toString() {
+        return  id + "\t" + articulo + "\t" + cantidad + "\t" + costoItem;
+    } 
 }

@@ -5,9 +5,11 @@
  */
 package org.owl.hugo.modelos;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -15,7 +17,7 @@ import java.util.List;
  */
 public class Compra implements Identificable{
     private Date fechaCompra;
-    private String timpradoFactura;
+    private String timbradoFactura;
     private String numeroFactura;
     private Proveedor proveedor;
     private List<ItemCompra> items;
@@ -33,12 +35,12 @@ public class Compra implements Identificable{
         this.fechaCompra = fechaCompra;
     }
 
-    public String getTimpradoFactura() {
-        return timpradoFactura;
+    public String getTimbradoFactura() {
+        return timbradoFactura;
     }
 
-    public void setTimpradoFactura(String timpradoFactura) {
-        this.timpradoFactura = timpradoFactura;
+    public void setTimbradoFactura(String timbradoFactura) {
+        this.timbradoFactura = timbradoFactura;
     }
 
     public String getNumeroFactura() {
@@ -77,6 +79,7 @@ public class Compra implements Identificable{
         this.id = id;
     }
     
+    /*
     public double calcularTotalCompra(){
         double total = 0.0;
         for(ItemCompra i:items){
@@ -100,7 +103,35 @@ public class Compra implements Identificable{
         }
         return montoImpuesto;
     }
+*/
+   @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Compra other = (Compra) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }  
     
+    @Override
+    public String toString(){
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy");
+        
+        String fechaFormateada = formatDate.format(fechaCompra);
+        
+        
+        return  id + "\t" +  fechaFormateada + "\t" + timbradoFactura + "\t" + 
+                numeroFactura + "\t" + proveedor + "\t" + items ;
     
+    }
     
 }

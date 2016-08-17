@@ -5,6 +5,8 @@
  */
 package org.owl.hugo.modelos;
 
+import java.util.Objects;
+
 /**
  *
  * @author huguito
@@ -19,8 +21,12 @@ public class Persona implements Identificable{
     private String telefono;
     private String email;
     private char sexo;
-    private Integer edad;
+    private int edad;
     private Long id;
+    
+    public Persona(){
+        
+    }
     
     public String getNombre(){
         return nombre;
@@ -109,5 +115,36 @@ public class Persona implements Identificable{
     @Override
     public void setId(Long id) {
         this.id = id;
+    }
+    
+     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 23 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+    
+     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Persona other = (Persona) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
+    }
+    
+    @Override
+    public String toString() {
+        String sexoStr = sexo == 'M' ? "Masculino" : "Femenino";
+        return id + "\t" + numeroDocumento + "\t" + nombre + "\t" + apellido + "\t" + sexoStr + "\t" + telefono + "\t"+ email;
     }
 }
